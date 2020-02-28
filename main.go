@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"gopkg.in/olivere/elastic.v6" //这里使用的是版本5，最新的是6，有改动
+	"github.com/olivere/elastic/v7" //这里使用的是版本5，最新的是6，有改动
 	"log"
 	"os"
 	"reflect"
