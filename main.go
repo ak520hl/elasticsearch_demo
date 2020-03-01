@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/olivere/elastic/v7" //这里使用的是版本5，最新的是6，有改动
+	"github.com/olivere/elastic" //这里使用的是版本5，最新的是6，有改动
 	"log"
 	"os"
 	"reflect"
@@ -144,7 +144,6 @@ func query() {
 		println(err.Error())
 	}
 	printEmployee(res, err)
-
 	if res.Hits.TotalHits > 0 {
 		fmt.Printf("Found a total of %d Employee \n", res.Hits.TotalHits)
 
@@ -176,9 +175,10 @@ func query() {
 	printEmployee(res, err)
 
 	//分析 interests
-	aggs := elastic.NewTermsAggregation().Field("interests")
-	res, err = client.Search("megacorp").Type("employee").Aggregation("all_interests", aggs).Do(context.Background())
-	printEmployee(res, err)
+	//aggs := elastic.NewTermsAggregation().Field("interests")
+	//res, err = client.Search("megacorp").Type("employee").Aggregation(
+	//	"all_interests", aggs).Do(context.Background())
+	//printEmployee(res, err)
 
 }
 
